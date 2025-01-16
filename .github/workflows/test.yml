@@ -8,8 +8,9 @@
         runs-on: ubuntu-latest
         name: just test debug action
         steps:
-          - name: Checkout
-            uses: actions/checkout@v4
-            with:
-              fetch-depth: 1
-          - uses: ./
+          - uses: Shiny-Kn/action-debug@main
+        #   - name: Checkout
+        #     uses: actions/checkout@v4
+        #     with:
+        #       fetch-depth: 1
+        #   - uses: ./
