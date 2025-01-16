@@ -1,16 +1,25 @@
 ---
-
-    on:
-      push:
-    
-    jobs:
-      test:
-        runs-on: ubuntu-latest
-        name: just test debug action
-        steps:
-          - uses: Shiny-Kn/action-debug@main
-        #   - name: Checkout
-        #     uses: actions/checkout@v4
-        #     with:
-        #       fetch-depth: 1
-        #   - uses: ./
+  # Ce tiret indique le début du fichier YAML pour GitHub Actions
+  
+  on:
+    push:
+      # Déclenche le workflow lors d'un push sur n'importe quelle branche
+  
+  jobs:
+    test:
+      # Définit un job nommé "test"
+      runs-on: ubuntu-latest
+      # Spécifie que ce job s'exécute sur la dernière version d'Ubuntu
+      name: just test debug action
+      # Donne un nom descriptif au job
+      steps:
+        - name: Checkout
+          # Première étape : récupération du code source
+          uses: actions/checkout@v4
+          # Utilise l'action checkout de GitHub en version 4
+          with:
+            fetch-depth: 1
+            # Ne récupère que le dernier commit pour optimiser la vitesse
+        - uses: ./
+          # Exécute une action locale définie dans le répertoire racine du projet
+          # Cela pourrait être une action personnalisée définie dans le même dépôt

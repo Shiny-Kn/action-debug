@@ -1,24 +1,27 @@
 ---
+# Nom de l'action GitHub
+name: 'debug-info'
+# Description de l'action
+description: 'debug our environment execution'
 
-    name: 'debug-info'
-    description: 'debug our environment execution'
-    
-    branding:
-      icon: chevron-down
-      color: gray-dark
-    
-    runs:
-      using: composite
-      steps:
-        - run: whoami
-          shell: bash
-        - run: ls -alh
-          shell: bash
-        - run: df -h
-          shell: bash
-        - run: free -m
-          shell: bash
-        - run: uname -a
-          shell: bash
-        - run: ps -ef
-          shell: bash
+# Configuration de l'apparence de l'action dans l'interface GitHub
+branding:
+  icon: chevron-down  # Icône à afficher
+  color: gray-dark    # Couleur de l'icône
+
+# Définition des étapes d'exécution de l'action
+runs:
+  using: composite    # Indique que c'est une action composite
+  steps:
+    - run: whoami     # Affiche l'utilisateur courant
+      shell: bash     # Utilise le shell bash pour exécuter la commande
+    - run: ls -alh    # Liste tous les fichiers (y compris les cachés) avec des détails
+      shell: bash
+    - run: df -h      # Affiche l'utilisation de l'espace disque
+      shell: bash
+    - run: free -m    # Affiche l'utilisation de la mémoire en mégaoctets
+      shell: bash
+    - run: uname -a   # Affiche les informations sur le système d'exploitation
+      shell: bash
+    - run: ps -ef     # Liste tous les processus en cours d'exécution
+      shell: bash
